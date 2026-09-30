@@ -1,3 +1,4 @@
+
 .working{
   color:green
 }
@@ -10,3 +11,10 @@
 .notworking{
   color:red
 }
+.info{
+  color:blue
+}
+body {
+  text-align: center
+}
+
