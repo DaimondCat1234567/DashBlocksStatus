@@ -1,0 +1,15 @@
+
+<html><head><title>Dash Status advanced</title><link rel="stylesheet" href="index.css"></head><body>
+<h1><a href="https://dashblocks.org">Dash</a> Status [Unofficial]</h1>
+<h2 id="sitestatus">Site: Loading info...</h2>
+<h2 id="mainstatus" class="working">Main Version UI: Ok</h2>
+<h3 id="devstatus" class="working">Dev Version UI: Ok</h3>
+<h3> id="serverstatus">Server (API): Loading info...</h3>
+<h3 class="info">ℹ️ <em>Пока нет доп инфы</em></h3>
+<a href="https://t.me/+BQDe44UPwUI3NmFi" class="info">🔵 Telegram</a>
+<script>
+async function sitestatus() { const req = await fetch("https://dashblocks.org"); const el = document.getElementById("sitestatus"); el.textContent = `Site: ${req.status}`; if (req.statusName == 200) { el.className = "working" } else if (req.status == 500 || req.status == 503) { el.className = "noworking" } else if (req.status == 404) { el.className = "problem" } }
+async function serverstatus() { const req = await fetch("https://api.dashblocks.org/users/8"); const el = document.getElementById("sitestatus"); el.textContent = `Site: ${req.status}`; if (req.statusName == 200) { el.className = "working" } else if (req.status == 500 || req.status == 503) { el.className = "noworking" } else if (req.status == 404) { el.className = "problem" } else if (req.status == 403) { el.className = "problem"; alert("Error: account or ip is banned") } }; sitestatus();
+serverstatus()
+</script>
+</body></html>
